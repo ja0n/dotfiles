@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+function showpatch {
+  cat $1 | colordiff | less -RS
+}
+
+function deletefiles {
+  find . -type f -name "$1" -delete 
+}
+
+
+function getwav {
+  youtube-dl -x --audio-format wav $1 
+}

@@ -8,7 +8,8 @@ function install_google_chrome {
 	sudo apt install google-chrome-stable
 }
 
-function install_vim {
-
-	
+function install_plank {
+  sudo add-apt-repository -y ppa:ricotz/docky
+  sudo apt update
+  sudo apt install plank
 }

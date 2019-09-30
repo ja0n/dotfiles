@@ -13,3 +13,21 @@ function install_plank {
   sudo apt update
   sudo apt install plank
 }
+
+function install_gcolor2 {
+  cd ~/Downloads
+  wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcolor2/gcolor2_0.4-2.1ubuntu1_amd64.deb
+  sudo apt install ./gcolor2_0.4-2.1ubuntu1_amd64.deb
+}
+
+function install_meld {
+  sudo apt install meld
+}
+
+function install_ag {
+  sudo apt install silversearcher-ag
+}
+
+function install_tesseract {
+  sudo apt install tesseract-ocr
+}

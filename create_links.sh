@@ -5,6 +5,7 @@ fi
 function create_links {
   ln -sf $DOTFILES/git/gitconfig ~/.gitconfig
   ln -sf $DOTFILES/git/gitignore ~/.gitignore
+  ln -sf $DOTFILES/git/userinfo ~/.userinfo
   ln -sf $DOTFILES/vim/vimrc ~/.vimrc
   ln -sf $DOTFILES/zsh/zshrc ~/.zshrc
   ln -sf $DOTFILES/zsh/aliases ~/.aliases

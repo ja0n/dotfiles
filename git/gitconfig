@@ -1,5 +1,8 @@
 [include]
-	path = .userinfo
+  path = .userinfo
+
+[github]
+  user = ja0n
 
 [alias]
   st = status
@@ -17,7 +20,7 @@
   ui = auto
 
 [push]
-  default = current 
+  default = current
 
 [fetch]
   prune = true
@@ -25,3 +28,6 @@
 [url "git@github.com:"]
   insteadOf = github:
   pushInsteadOf = github:
+
+[core]
+  autocrlf = true

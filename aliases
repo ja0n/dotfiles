@@ -25,21 +25,16 @@ prettyjson() {
   python -m json.tool | pygmentize -l json
 }
 
-triggercodeship() {
-  touch tmp
-  hg add tmp
-  hg commit -m "Trigger Codeship"
-  hg rm tmp
-  hg commit --amend -m "Trigger Codeship"
-}
-
 tsarea() {
   gnome-screenshot -a
 }
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-alias pbtesseract='sleep 2; gnome-screenshot -ac; xclip -selection clipboard -t image/png -o > /tmp/_pbcopy_tesseract.png ; tesseract /tmp/_pbcopy_tesseract.png /tmp/_pbcopy_tesseract --l eng > /dev/null; sleep 2; cat /tmp/_pbcopy_tesseract.txt  | pbcopy'
+alias pbtesseract='sleep 2; gnome-screenshot -ac; xclip -selection clipboard -t image/png -o > /tmp/_pbcopy_tesseract.png ; sleep 1; tesseract /tmp/_pbcopy_tesseract.png /tmp/_pbcopy_tesseract.txt -l eng+por > /dev/null; sleep 2; cat /tmp/_pbcopy_tesseract.txt  | pbcopy'
+alias dcu="docker-compose up"
+alias dcr="docker-compose run"
+alias dce="docker-compose exec"
 
 loopsoundimage() {
   ffmpeg -loop 1 -i $1 -i $2 -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest $3

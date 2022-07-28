@@ -100,11 +100,15 @@ if [ -d "/var/lib/flatpak/exports/bin" ] ; then
   PATH="$PATH:$HOME/.local/share/flatpak/exports/bin"
 fi
 
-# custom 
+# custom
 source $HOME/.aliases
-export PATH=$HOME/tools/depot_tools:"$PATH"
-export PATH=$HOME/tools/android-tools:"$PATH"
-export PATH=/home/jaon/Projects/fr/venv/bin:"$PATH"
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -118,6 +122,10 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .hg -g ""'
 
 export LESS="-RS"
 
+if [ -d "$HOME/.asdf" ] ; then
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
+fi
+
+export PATH=/home/ja0n/.local/bin:$PATH

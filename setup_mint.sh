@@ -1,5 +1,26 @@
 #!/bin/sh
 
+function install_apt_https {
+  sudo apt-get install \
+      apt-transport-https \
+      ca-certificates \
+      curl \
+      gnupg-agent \
+      software-properties-common
+}
+
+function install_essentials {
+  sudo apt install git build-essentials tmux
+}
+
+function install_docker {
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+}
+
 function install_google_chrome {
 	sudo echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list
 	wget https://dl-ssl.google.com/linux/linux_signing_key.pub
@@ -29,5 +50,19 @@ function install_ag {
 }
 
 function install_tesseract {
-  sudo apt install tesseract-ocr
+  sudo apt install tesseract-ocr tesseract-ocr-por
 }
+
+# Check if the function exists (bash specific)
+if declare -f "$1" > /dev/null
+then
+  # call arguments verbatim
+  "$@"
+else
+  # Show a helpful error
+  echo "'$1' is not a known command" >&2
+  echo "" >&2
+  echo "List of available commands:" >&2
+  declare -F | cut -d ' ' -f3-
+  exit 1
+fi

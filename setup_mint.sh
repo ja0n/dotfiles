@@ -53,6 +53,10 @@ function install_tesseract {
   sudo apt install tesseract-ocr tesseract-ocr-por
 }
 
+function install_micro {
+  sudo apt install micro
+}
+
 # Check if the function exists (bash specific)
 if declare -f "$1" > /dev/null
 then

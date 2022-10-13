@@ -15,6 +15,7 @@
   df = diff
   unstage = reset --hard HEAD
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  archeology = blame -w -n -M -C -C -C
 
 [color]
   ui = auto

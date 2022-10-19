@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function install_apt_https {
   sudo apt-get install \

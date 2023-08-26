@@ -10,7 +10,7 @@ function install_apt_https {
 }
 
 function install_essentials {
-  sudo apt install git build-essentials tmux
+  sudo apt install git build-essential tmux
 }
 
 function install_docker {
